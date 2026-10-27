@@ -28,11 +28,10 @@ const { getTotalCartAmount,token,food_list,cartItems,url } = useContext(StoreCon
 const placeOrder = async(event)=>{
    event.preventDefault();
    let orderItems = [];
-   food_list.map((item)=>{
-     if (cartItems[item._id]>0) {
-      let itemInfo = item;
-      itemInfo["quantity"]=cartItems[item._id];
-      orderItems.push(itemInfo)
+   food_list.forEach((item)=>{
+     const quantity = cartItems[item._id];
+     if (quantity > 0) {
+      orderItems.push({ ...item, quantity });
      }
    })
 

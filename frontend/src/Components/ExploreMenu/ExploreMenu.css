@@ -1,72 +1,180 @@
-.explore-menu{
+
+.explore-menu {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px;
+    padding: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
-.explore-menu h2{
+
+/* Heading */
+.explore-menu h1 {
     font-size: 24px;
     color: #262626;
     font-weight: 500;
 }
- .explore-menu-items{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+
+/* Description */
+.explore-menu-text {
     max-width: 60%;
     color: #808080;
+    font-size: 16px;
+    line-height: 1.5;
 }
-.explore-menu-list{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    text-align: center;
-    margin: 30px 0px;
-    border-radius: 10px;
-    overflow-x: scroll;
-}
+
+/* Horizontal Menu Slider */
+.explore-menu-list { display: flex; flex-wrap: nowrap; gap: 25px; align-items: flex-start; text-align: center; margin: 20px 0; overflow-x: auto; overflow-y: hidden; width: 100%; padding: 10px 0 20px; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #999 #eee; }
+
+/* Chrome, Edge and Safari scrollbar */
 .explore-menu-list::-webkit-scrollbar {
-    display: none;
+    height: 10px;
+    display: block;
 }
-.explore-menu-list-item img{
-    width: 7.5vw;
-    min-width: 80px;
+
+.explore-menu-list::-webkit-scrollbar-track {
+    background: #eeeeee;
+    border-radius: 10px;
+}
+
+.explore-menu-list::-webkit-scrollbar-thumb {
+    background: #888888;
+    border-radius: 10px;
+}
+
+.explore-menu-list::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}
+
+/* Individual Menu Category */
+.explore-menu-list-item {
+    flex: 0 0 110px;
+    width: 110px;
+    min-width: 110px;
+    text-align: center;
     cursor: pointer;
-    border-radius: 50%;
-    transition: 0.3s;
 }
-.explore-menu-list-item img:hover{
+
+/* Category Image */
+.explore-menu-list-item img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.explore-menu-list-item img:hover {
     transform: scale(1.05);
 }
 
-.explore-menu-list-item p{
-    font-size: max(1.4vw, 16px);
+/* Active Category */
+.explore-menu-list-item img.active {
+    border: 4px solid tomato;
+    padding: 2px;
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
+}
+
+/* Category Name */
+.explore-menu-list-item p {
+    font-size: 16px;
     color: #747474;
     margin-top: 10px;
+    white-space: nowrap;
+    text-align: center;
 }
-.explore-menu-list-item p:hover{
+
+.explore-menu-list-item p:hover {
     color: #262626;
     font-weight: 500;
 }
-.explore-menu hr{
-    margin: 10px 0px;
+
+/* Horizontal Divider */
+.explore-menu hr {
+    margin: 10px 0;
     height: 2px;
     background: #e2e2e2;
     border: none;
-}   
+    flex-shrink: 0;
+}
 
-.explore-menu-list-item .active{
-    border: 4px solid tomato;
-    padding: 2px;
-    box-shadow: 0px 0px 10px rgba(255, 99, 71, 0.5);
+/* Tablet Responsive */
+@media (max-width: 1050px) {
+    .explore-menu {
+        padding: 15px;
     }
 
+    .explore-menu-text {
+        max-width: 100%;
+        font-size: 14px;
+    }
 
-    @media (max-width: 1050px) {
-        .explore-menu-text{
-            max-width: 100%;
-            font-size:14px ;
-        
+    .explore-menu-list {
+        gap: 20px;
+    }
+
+    .explore-menu-list-item {
+        flex: 0 0 100px;
+        width: 100px;
+        min-width: 100px;
+    }
+
+    .explore-menu-list-item img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .explore-menu-list-item p {
+        font-size: 15px;
     }
 }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .explore-menu {
+        padding: 12px;
+        gap: 15px;
+    }
+
+    .explore-menu h1 {
+        font-size: 22px;
+    }
+
+    .explore-menu-text {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .explore-menu-list {
+        gap: 15px;
+        margin: 15px 0;
+        padding-bottom: 12px;
+    }
+
+    .explore-menu-list::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .explore-menu-list-item {
+        flex: 0 0 85px;
+        width: 85px;
+        min-width: 85px;
+    }
+
+    .explore-menu-list-item img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .explore-menu-list-item p {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+}
+
